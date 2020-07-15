@@ -50,7 +50,7 @@
 
               <div class="form-group">
                 <label for="party">Size of Party</label>
-                <input type="text" class="form-control" id="size">
+                <input type="text" class="form-control" id="party">
               </div>
 
             </form>
@@ -63,25 +63,28 @@
       </div>
     </div>
     <div>
-      <a href="">API Table Link</a>
-      <a href="">API Wait List</a>
+      <a href="/api/reservations">API Table Link</a>
+      <a href="/api/waitlist">API Wait List</a>
   </div>
   </div>
   <script type="text/javascript">
     $("#add-btn").on("click", function(event) {
       event.preventDefault();
+      console.log($("#party").val())
       var newReserve = {
         name: $("#name").val().trim(),
         phone: $("#phone").val().trim(),
         email: $("#email").val().trim(),
         party: $("#party").val().trim()
       };
+      $('.form-control').empty()
     
-      $.post("/api/reservations", newReserve)
-        .then(function(data) {
-            //console.log("add.html", data);
-         //alert("Adding reservation...");
-        });
+    
+        $.post("/api/reservations", newReserve)
+            .then(function(data) {
+                // console.log("add.html", data);
+                // alert("Adding reservation...");
+            }); 
     });
   </script>
 </body>

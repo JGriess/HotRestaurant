@@ -23,13 +23,13 @@
             class="fa fa-home"></span></button></a>
     </div>
     <!--Current Reservations-->
-    <div class="row">
+    <div class="row" >
       <div class="col-12">
         <div class="card">
           <div class="card-header">
             <h3><strong>Current Reservations</strong></h3>
           </div>
-          <div class="card-body">
+          <div class="card-body"  id="current-list">
             <!--Reservations go here-->
           </div>
         </div>
@@ -42,7 +42,7 @@
           <div class="card-header">
             <h3><strong>Waiting List</strong></h3>
           </div>
-          <div class="card-body">
+          <div class="card-body"  id="waitlist-list">
             <!--Wait List goes here-->
           </div>
         </div>
@@ -58,21 +58,36 @@
   </div>
   
   <script type="text/javascript">
-    $("#add-btn").on("click", function(event) {
-      event.preventDefault();
-      var newReserve = {
-        name: $("#name").val().trim(),
-        phone: $("#phone").val().trim(),
-        email: $("#email").val().trim(),
-        party: $("#party").val().trim()
-      };
 
-      $.post("/api/characters", newReserve)
-        .then(function(data) {
-            //console.log("add.html", data);
-         //alert("Adding reservation...");
+      $.get("/api/reservations", function(data){
+        console.log(data);
+      }).then(function(data) {
+        console.log(data.length)
+        for(let i = 0; i < data.length; i++){
+          var divGen = $('<div>');
+            divGen.attr('class', 'card');
+            divGen.attr("id", 'res-' + i);
+              //console.log(data[i])
+            if(i < 5) {
+            $('#current-list').append(divGen);
+            } else {
+            $('#waitlist-list').append(divGen)
+            }
+            var hTag = $('<h3>');
+              hTag.text(data[i].name);
+              $('#res-' + i).append(hTag)
+
+            var bodyGen = $('<div>');
+            bodyGen.attr('class', 'card-body');
+            bodyGen.html(`
+            <ul>
+              <li>${ data[i].phone} </li>
+              <li>${ data[i].email} </li>
+              <li>${ data[i].party} </li>
+            `);
+            $('#res-' + i).append(bodyGen)
+          }
         });
-    });
   </script>
 </body>
 </html>
