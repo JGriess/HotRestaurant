@@ -17,6 +17,7 @@ app.use(express.json());
 var reservations = [];
 var waitlist = [];
 
+
 // Routes
 // =============================================================
 
