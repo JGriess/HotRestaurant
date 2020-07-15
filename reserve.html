@@ -69,7 +69,7 @@
         email: $("#email").val().trim(),
         party: $("#party").val().trim()
       };
-
+    
       $.post("/api/reservations", newReserve)
         .then(function(data) {
             //console.log("add.html", data);
