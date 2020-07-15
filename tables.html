@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Hot Restaurant Reservation Form</title>
+  <title>Tables</title>
   <!-- Latest compiled and minified CSS & JS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -18,55 +18,45 @@
       <h3>Cuisine Type</h3>
       <hr>
       <!--Buttons to view tables and go back to home page-->
-      <a href="/tables"><button class="btn btn-danger btn-lg"><span class="fa fa-book"></span> View Tables</button></a>
+      <a href="/reserve"><button class="btn btn-danger btn-lg"><span class="fa fa-book"></span> View Tables</button></a>
       <a href="/"><button class="btn btn-danger btn-lg"><span
             class="fa fa-home"></span></button></a>
     </div>
+    <!--Current Reservations-->
     <div class="row">
-
       <div class="col-12">
-
         <div class="card">
           <div class="card-header">
-            <h3><strong>Make Reservation</strong></h3>
+            <h3><strong>Current Reservations</strong></h3>
           </div>
           <div class="card-body">
-            <form method="POST" role="form">
-
-              <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" class="form-control" id="name">
-              </div>
-
-              <div class="form-group">
-                <label for="phone">Phone Number</label>
-                <input type="text" class="form-control" id="phone">
-              </div>
-
-              <div class="form-group">
-                <label for="email">E-Mail</label>
-                <input type="text" class="form-control" id="email">
-              </div>
-
-              <div class="form-group">
-                <label for="party">Size of Party</label>
-                <input type="text" class="form-control" id="size">
-              </div>
-
-            </form>
-            <br>
-            <div class="text-right">
-              <button type="submit" class="btn btn-primary btn-md" id="add-btn"><span class="reserve-button"></span> Make Reservation</button>
-            </div>
+            <!--Reservations go here-->
           </div>
         </div>
       </div>
     </div>
+    <!--Waiting List-->
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-header">
+            <h3><strong>Waiting List</strong></h3>
+          </div>
+          <div class="card-body">
+            <!--Wait List goes here-->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--Control Panel-->
     <div>
+      <p>Control Panel</p>
+      <br>
+      <a href="">Clear Table</a>
       <a href="">API Table Link</a>
       <a href="">API Wait List</a>
   </div>
-  </div>
+  
   <script type="text/javascript">
     $("#add-btn").on("click", function(event) {
       event.preventDefault();
