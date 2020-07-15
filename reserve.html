@@ -61,7 +61,6 @@
     </div>
   </div>
   <script type="text/javascript">
-    // Question: What does this code do?
     $("#add-btn").on("click", function(event) {
       event.preventDefault();
       var newReserve = {
@@ -70,7 +69,7 @@
         email: $("#email").val().trim(),
         party: $("#party").val().trim()
       };
-      // Question: What does this code do??
+
       $.post("/api/characters", newReserve)
         .then(function(data) {
             //console.log("add.html", data);
