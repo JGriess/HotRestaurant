@@ -16,10 +16,8 @@ app.use(express.json());
 // =============================================================
 var reservations = [];
 
-
 // Routes
 // =============================================================
-
 // Basic route that sends the user first to the AJAX Page
 app.get("/", function(req, res) {
     res.sendFile(path.join(__dirname, "main.html"));
@@ -36,20 +34,24 @@ app.get("/tables", function(req, res) {
 // retrieve reservations
 app.get("/api/reservations", function(req, res) {
     return res.json(reservations);
-})
+
+});
+
 
 // retrieve waitlist
 app.get("/api/waitlist", function(req, res) {
     return res.json(waitlist);
-})
+
+});
+
 
 app.post("/api/reservations", function(req, res) {
     var newReservation = req.body;
+    newReservation.routeName = newReservation.name.replace(/\s+/g, "").toLowerCase();
     console.log(newReservation);
     reservations.push(newReservation);
     res.json(newReservation);
 })
-
 // Starts the server to begin listening
 // =============================================================
 app.listen(PORT, function() {
