@@ -12,10 +12,9 @@ var PORT = 3000;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// Reservations and waitlist (DATA)
+// Reservations (DATA)
 // =============================================================
 var reservations = [];
-var waitlist = [];
 
 
 // Routes
@@ -35,14 +34,14 @@ app.get("/tables", function(req, res) {
 });
 
 // retrieve reservations
-app.get("/api/reservations"), function(req, res) {
+app.get("/api/reservations", function(req, res) {
     return res.json(reservations);
-}
+})
 
 // retrieve waitlist
-app.get("/api/waitlist"), function(req, res) {
+app.get("/api/waitlist", function(req, res) {
     return res.json(waitlist);
-}
+})
 
 app.post("/api/reservations", function(req, res) {
     var newReservation = req.body;
