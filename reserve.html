@@ -69,8 +69,8 @@
         email: $("#email").val().trim(),
         party: $("#party").val().trim()
       };
-
-      $.post("/api/characters", newReserve)
+    
+      $.post("/api/reservations", newReserve)
         .then(function(data) {
             //console.log("add.html", data);
          //alert("Adding reservation...");
