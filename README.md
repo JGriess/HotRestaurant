@@ -10,7 +10,7 @@
   * [Questions](#Questions)
 
  ## Description 
-[Link to Deployed App](http://52.165.238.41/)
+[Link to Deployed App](http://52.173.247.177)
 
 Enter your name, contact info and number of people in your party and we'll put you on the `reservations` list.  If there are more than `5` people in the `reservations` list then we'll put you on the `waitlist`.
 
